@@ -3,7 +3,7 @@
 import random
 
 # Variables globales.
-alfabeto = ['A','B','C','D','E','F','G','H','I','J','K','L','M','N','O','P','Q','R','S','T','U','V','W','X','Y','Z']
+alfabeto = ['A','B','C','D','E','F','G','H','I','J','K','L','M','N','O','P','Q','R','S','T','U','V','W','X','Y','Z',' ']
 
 # Genera las llaves para cifrar/descifrar con RSA.
 def generaLlaves ():
@@ -34,7 +34,7 @@ def cifra (e,N,M):
 	# Recorremos el mensaje
 	for char in M:
 		# Ignoramos los espacios.
-		if char == ' ': continue
+		# if char == ' ': continue
 		m = alfabeto.index(char);
 		# Agregamos el caracter ya cifrado.
 		cifrado.append(modPow(m,e,N))
@@ -57,7 +57,7 @@ def decifra (d,N,M):
 
 # Funciones Auxiliares #
 
-# Dados dos números n y m 
+# Dados dos números n y m regresa un primo aproximado entre ese rango.
 def getPrimo(n,m):
 	p = random.randint(n, m);
 	# Lo hacemos impar si no lo es.
@@ -115,7 +115,7 @@ def inverso(b, a):
 
 if __name__ == '__main__':
 	e,N,d = generaLlaves()
-	M = "y vos sabes en cambio extraer de ese paramo mi germen de alegria y regarlo mirandolo"
+	M = "y vos sabes en cambio extraer de ese paramo mi germen	 de alegria y regarlo mirandolo"
 	# Lo pasamos a mayúsculas.
 	M = M.upper();
 	# Quitar acentos...
